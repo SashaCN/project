@@ -1,0 +1,31 @@
+@import helpers/fonts.sass
+@import helpers/vars.sass
+@import components/header.sass
+@import components/footer.sass
+
+/* -------------------------------------------------------------------------- */
+/*                               general styles                               */
+/* -------------------------------------------------------------------------- */
+
+html
+    font-size: 1px
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+a
+    text-decoration: none
+
+.wrapper
+    width: 90%
+    margin: 0 auto
+    @media screen and (max-width: 1440px)
+        width: 100%
+        padding: 0 20px
+
+.flex-line
+    display: flex
+    justify-content: space-between
+    align-items: center
