@@ -1,0 +1,105 @@
+/* -------------------------------------------------------------------------- */
+/*                                   header                                   */
+/* -------------------------------------------------------------------------- */
+
+header
+    padding: 15px 0
+    background-color: $primaryBg
+
+.logo
+    transition: $trs
+    &:hover
+        transform: scale(1.05, 1.2)
+    &__svg
+        width: 163px
+        height: 20px
+
+
+.catalog
+    padding: 8rem 15rem
+    font: 500 16rem/20rem $primaryFont
+    letter-spacing: 0.1em
+    color: $white
+    background-color: $btnGrey
+    border-radius: 3px
+    transition: $trs
+    &:hover
+        background-color: $btnGreyHov
+        box-shadow: $shadowHov
+    &__svg
+        width: 24rem
+        height: 24rem
+    &__text
+        padding-left: 8rem
+
+.search-form
+    position: relative
+    display: flex
+    width: 65%
+    overflow: hidden
+    border-radius: 3px
+    &__input
+        flex:1 1 auto
+        padding: 10rem 20rem 10rem 45rem
+        font: 500 16rem/20rem $primaryFont
+        letter-spacing: 0.1em
+        color: $greyLight
+        &::placeholder
+            color: $greyLight
+        &::-ms-clear,
+        &::-ms-reveal
+            display: none
+            width: 0
+            height: 0
+        &::-webkit-search-decoration,
+        &::-webkit-search-cancel-button,
+        &::-webkit-search-results-button,
+        &::-webkit-search-results-decoration
+            display: none
+        &:focus + label
+            left: 10rem
+    &__label
+        position: absolute
+        top: 50%
+        left: 14rem
+        transform: translateY(-50%)
+        transition: $trs
+    &__icon
+        width: 24rem
+        height: 24rem
+        fill: $greyLight
+    &__button
+        padding: 10rem 22rem
+        font: 500 16rem/20rem $primaryFont
+        color: $textDark
+        background-color: $primary
+        border: none
+        transition: $trs
+        &:hover
+            color: $white
+            background-color: $btnGrey
+            cursor: pointer
+
+.profile-menu
+    column-gap: 30px
+
+.basket-link,
+.profile-link
+    transition: $trs
+    &:hover
+        transform: scale(1.2)
+    &__icon
+        width: 28px
+        height: 28px
+
+.profile-link:hover + .profile-menu-links
+    display: block
+
+.profile-menu-links
+    display: none
+    position: fixed
+    top: 100px
+    right: 30px
+    background-color: $primaryBg
+    &__link
+        font: 500 16rem/20rem $primaryFont
