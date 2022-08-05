@@ -1,5 +1,6 @@
 @import helpers/fonts.sass
 @import helpers/vars.sass
+@import helpers/mixin.sass
 @import components/header.sass
 @import components/footer.sass
 
@@ -28,7 +29,7 @@ input
 .wrapper
     width: 90%
     margin: 0 auto
-    @media screen and (max-width: 1440px)
+    +media(1440)
         width: 100%
         padding: 0 20px
 

@@ -38,12 +38,12 @@
             </form>
 
             <div class="profile-menu flex-line">
-                <a class="basket-link" href="#">
+                <a class="basket-link" href="#" title="Корзина">
                     <svg class="basket-link__icon">
                         <use xlink:href="{{ asset('img/sprite.svg#basket') }}"></use>
                     </svg>
                 </a>
-                <a class="profile-link" href="#">
+                <a class="profile-link" href="#" title="Профіль">
                     <svg class="profile-link__icon">
                         <use xlink:href="{{ asset('img/sprite.svg#profile') }}"></use>
                     </svg>
@@ -52,22 +52,22 @@
                 <ul class="profile-menu-links">
                     @if (Auth::id())
                         <li class="profile-menu-links__item">
-                            <form class="profile-menu-links__link" method="POST" action="{{ route('logout') }}">
+                            <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <x-responsive-nav-link :href="route('logout')"
-                                        class="primeri-btm-a"
+                                        class="primeri-btm-a profile-menu-links__link"
                                         onclick="event.preventDefault();
                                                     this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Вихід') }}
                                 </x-responsive-nav-link>
                             </form>
                         </li>
                     @else
-                        <li class="profile-menu-links__link">
-                            <a class="profile-menu-links__item" href="{{ route('login') }}">Вхід</a>
+                        <li>
+                            <a class="profile-menu-links__link" href="{{ route('login') }}">Вхід</a>
                         </li>
-                        <li class="profile-menu-links__link">
-                            <a class="profile-menu-links__item" href="{{ route('register') }}">Реєстрація</a>
+                        <li>
+                            <a class="profile-menu-links__link" href="{{ route('register') }}">Реєстрація</a>
                         </li>
                     @endif
                 </ul>
