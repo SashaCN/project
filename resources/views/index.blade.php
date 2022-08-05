@@ -37,7 +37,7 @@
                 <button class="search-form__button" type="submit">Знайти</button>
             </form>
 
-            <div class="profile-menu flex-line">
+            <div class="profile-controll flex-line">
                 <a class="basket-link" href="#" title="Корзина">
                     <svg class="basket-link__icon">
                         <use xlink:href="{{ asset('img/sprite.svg#basket') }}"></use>
@@ -49,26 +49,11 @@
                     </svg>
                 </a>
 
-                <ul class="profile-menu-links">
+                <ul class="profile-menu">
                     @if (Auth::id())
-                        <li class="profile-menu-links__item">
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <x-responsive-nav-link :href="route('logout')"
-                                        class="primeri-btm-a profile-menu-links__link"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    {{ __('Вихід') }}
-                                </x-responsive-nav-link>
-                            </form>
-                        </li>
+                    
                     @else
-                        <li>
-                            <a class="profile-menu-links__link" href="{{ route('login') }}">Вхід</a>
-                        </li>
-                        <li>
-                            <a class="profile-menu-links__link" href="{{ route('register') }}">Реєстрація</a>
-                        </li>
+
                     @endif
                 </ul>
             </div>
