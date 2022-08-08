@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     @vite('resources/sass/style.sass')
+    @vite('resources/js/popup.js')
+
 </head>
 <body>
     <header class="header">
@@ -49,9 +51,23 @@
                     </svg>
                 </a>
 
+                <div class="popup-bg">
+                    <div class="popup popup-bg__popup profile-controll__popup">
+                        <div class="popup__close">
+                            <svg class="popup__close-icon">
+                                <use xlink:href="{{ asset('img/sprite.svg#close') }}"></use>
+                            </svg>
+                        </div>
+                        <ul class="popup__nav-line">
+                            <li><a href="#" class="popup__nav-item popup__nav-item__active">Вхід</a></li>
+                            <li><a href="#" class="popup__nav-item">Реєстрація</a></li>
+                        </div>
+                    </div>
+                </div>
+
                 <ul class="profile-menu">
                     @if (Auth::id())
-                    
+
                     @else
 
                     @endif

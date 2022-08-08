@@ -94,3 +94,51 @@ header
 
 .profile-menu
     display: none
+
+.popup-bg
+    display: none
+    position: fixed
+    z-index: 5
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background-color: rgba(60, 60, 60, .7)
+    &:hover
+        // cursor: url('../images/close.cur')
+
+.popup
+    display: none
+    position: fixed
+    z-index: 6
+    top: 50%
+    left: 50%
+    width: 40vw
+    background-color: $primaryBg
+    border-radius: 5px
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    transform: translate(-50%, -50%)
+    &__close
+        position: absolute
+        top: 10px
+        right: 10px
+    &__close-icon
+        width: 36px
+        height: 36px
+        fill: $white
+        transition: $trs
+        &:hover
+            cursor: pointer
+            fill: $primary
+    &__nav-line
+        display: flex
+        align-items: center
+        border-bottom: 1px solid $white
+    &__nav-item
+        display: inline-block
+        font: 500 16rem/20rem $primaryFont
+        padding: 20px
+        color: $white
+
+.popup__active
+    display: block
