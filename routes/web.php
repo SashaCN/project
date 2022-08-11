@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('user/index');
 })->name('index');
 
 // Route::get('/dashboard', function () {
@@ -24,7 +24,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function()
 {
     Route::prefix('/')->group(function(){
-
+        Route::get('profile/index', [\App\Http\Controllers\User\ProfileController::class, 'index'])->name('profile');
     });
 });
 

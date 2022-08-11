@@ -45,7 +45,15 @@
                         <use xlink:href="{{ asset('img/sprite.svg#basket') }}"></use>
                     </svg>
                 </a>
-                <a class="profile-link" href="#" title="Профіль">
+                <a class="profile-link"
+                @if (Auth::id())
+                    {{-- link to profile page if logged --}}
+                    href='{{ route('profile') }}'
+                @else
+                    {{-- link for opening registr popup --}}
+                    href="#"
+                @endif
+                title="Профіль">
                     <svg class="profile-link__icon">
                         <use xlink:href="{{ asset('img/sprite.svg#profile') }}"></use>
                     </svg>
@@ -61,19 +69,57 @@
                         <ul class="popup__nav-line">
                             <li><a href="#" class="popup__nav-item popup__nav-item__active">Вхід</a></li>
                             <li><a href="#" class="popup__nav-item">Реєстрація</a></li>
-                        </div>
+                        </ul>
+                        <form class="login-form" method="POST" action="{{ route('login') }}">
+                            @csrf
+
+                            <!-- Email Address -->
+                            <div class="login-form__line">
+                                <x-input id="email" class="login-form__input" type="email" name="email" :value="old('email')" required autofocus />
+
+                                <x-label class="login-form__label" for="email" :value="__('Електрона пошта')" />
+                            </div>
+                            <!-- Password -->
+                            <div class="login-form__line">
+
+                                <x-input class="login-form__input" id="password"
+                                    type="password"
+                                    name="password"
+                                    required autocomplete="current-password" />
+                                    
+                                <x-label class="login-form__label" for="password" :value="__('Пароль')" />
+                            </div>
+
+                            <!-- Remember Me -->
+                            <div class="block mt-4">
+                                <label for="remember_me" class="inline-flex items-center">
+                                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+                                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                                </label>
+                            </div>
+                            <div class="flex items-center justify-end mt-4">
+                                @if (Route::has('password.request'))
+                                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                                        {{ __('Forgot your password?') }}
+                                    </a>
+                                @endif
+
+                                <x-button class="ml-3">
+                                    {{ __('Log in') }}
+                                </x-button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
                 <ul class="profile-menu">
-                    @if (Auth::id())
 
-                    @else
-
-                    @endif
                 </ul>
             </div>
         </nav>
     </header>
+    <main>
+
+    </main>
 </body>
 </html>

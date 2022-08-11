@@ -6,6 +6,11 @@ function setPopup (btnSelector, popupSelector)          // general function for 
 
         btn.forEach(elem => {
             elem.onclick = (e) => {
+                if (e.target.closest('a').getAttribute('href') != '#') {
+                    location.href = e.target.closest('a').getAttribute('href');
+                    return false;
+                }
+
                 e.preventDefault();
 
                 popupBg.closest('.popup-bg').classList.toggle('popup__active');
